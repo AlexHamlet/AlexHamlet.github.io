@@ -1,0 +1,48 @@
+body{
+    background: #cccccc;
+    Height:690px;
+}
+h1 {
+    padding: 300px 0px 10px 500px;
+    Width: 500px;
+    text-align: center;
+    font-family:"Times New Roman", Times, serif;
+}
+p {
+    margin:auto auto auto auto;
+    Width: 500px;
+    text-align: center;
+}
+canvas {
+    position: absolute;
+    top: 5px;
+    left: 752px;
+}
+#hours {
+    font: 20px;
+    font-family: Impact, Charcoal, sans-serif;
+    left: 402px;
+    animation: round 43200s 0s infinite linear;
+}
+#minutes{
+    font: 16px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    left: 502px;
+    top: 100px;
+    animation: round 3600s 0s infinite linear;
+}
+#seconds{
+    font: 12px;
+    font-family:"Courier New", Courier, monospace;
+    left: 602px;
+    top: 200px;
+    animation: round 60s 0s infinite linear;
+}
+@keyframes round{
+    0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
