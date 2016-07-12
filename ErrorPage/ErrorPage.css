@@ -1,0 +1,29 @@
+body {
+    background-color: #000000;
+    color: blue;
+}
+#broom {
+    position: absolute;
+    top: 150px;
+    left: 650px;
+    width: 200px;
+    text-align: center;
+    animation: swing 3s infinite;
+}
+pre  {
+    position: absolute;
+    top: 30px;
+    left: 635px;
+}
+@keyframes swing{
+    0%, 50%, 100%{
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(45deg);
+    }
+    75% {
+        transform: rotate(-45deg);
+    }
+    
+}
