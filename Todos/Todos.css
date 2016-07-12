@@ -1,0 +1,76 @@
+body{
+    font-family: exocet, Arial, serif;
+    background-color: #111111;
+    margin: 15px auto 15px auto;
+}
+h1{
+    font-size: 100px;
+    text-align: center;
+    height: 50%;
+    width: 50%;
+    margin: auto auto auto auto;
+    background-color: #00ffff;
+    transition: all 3s 0.5s;
+}
+h1:hover{
+    animation: Todoschange 3s infinite;
+}
+div{
+    text-align: center;
+    background-color: #00ff00;
+    font-size: 25px;
+    height: 50px;
+    width: 50%;
+    margin: 15px auto 15px auto;
+}
+div input{
+    width: 450px;
+    height: 30px;
+    margin: auto auto auto auto;
+    text-align: center;
+    background-color: #dddddd;
+    border: 3px;
+}
+.physics{
+    height: 600px;
+    width:600px;
+}
+li{
+    color: #ffffff;
+    
+}
+li:hover{
+    color: #ff0000;
+}
+p{                    
+    display: inline;
+}
+#inpoot{
+    margin: 0 0 15px 0;
+}
+.button{
+    Width: 500px;
+    border-radius: 50%;
+    background:red;
+    padding: 7px 7px 7px 7px;
+    margin: 600px auto 0 auto;
+}
+.button:hover{
+    animation: btnchng 10s 0.5s infinite;
+}
+@keyframes Todoschange{
+    0%, 100% {background: #00ffff;}
+    50% {background: #aa00ff;}
+}
+@keyframes btnchng{
+    0%, 100%{background: red;}
+    10%{background: orange;}
+    20%{background: yellow;}
+    30%{background: green;}
+    40%{background: blue;}
+    50%{background: purple;}
+    60%{background: blue;}
+    70%{background: green;}
+    80%{background: yellow;}
+    90%{background: orange;}
+}
