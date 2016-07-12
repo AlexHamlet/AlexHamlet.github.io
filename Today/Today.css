@@ -1,0 +1,54 @@
+body{
+    background-color: black;
+}
+h1, p {
+    color: #ffffff;
+    position: absolute;
+    top: 250px;
+    left: 230px;
+    font-size:30px 
+}
+#today{
+    position: fixed;
+    top: 150px;
+    left: 50px;
+}
+#first {
+    top: 250px;
+    color: #ff0000;
+}
+#second{
+    top: 550px;
+    color: #ff5500;
+}
+#third{
+    top: 850px;
+    color: #cccc00;
+}
+#fourth{
+    top: 1150px;
+    color: #00cc00;
+}
+#fifth{
+    top: 1450px;
+    color: #0000ff;
+}
+#sixth{
+    top: 1750px;
+    color: #9900dd;
+}
+#final{
+    top: 5050px;
+    color: #ff0000;
+    font-size: 300px;
+}
+img {
+    position: absolute;
+    top: 5700px;
+    left: 0px;
+}
+#jc {
+    position: absolute;
+    top 5700px;
+    left: 1200px;
+}
