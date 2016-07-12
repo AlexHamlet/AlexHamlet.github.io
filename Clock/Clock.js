@@ -1,12 +1,6 @@
 (function() {
     /*This is raw awesomeness ;) nice job!*/
 
-    //trig lists
-    //var half = .5;
-    //var frac = (Math.sqrt(3)) / 2;
-    //var posx = [half, frac, 1, frac, half, 0, -half, -frac, -1, -frac, -half, 0];
-    //var posy = [frac, half, 0, -half, -frac, -1, -frac, -half, 0, half, frac, 1];
-
     //attempt at getting the time
     var date = new Date();
     var seconds = Math.PI / 30 * date.getSeconds();
