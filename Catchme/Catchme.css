@@ -1,0 +1,26 @@
+body, p{
+    text-align: center;
+    width: 50%;
+    height: 150px;
+    border-radius: 20%;
+    margin: auto;
+    background: linear-gradient(90deg, red, blue, green);
+}
+h1 {
+    text-align: center;
+ 
+}
+p{
+    text-indent: -9999px;
+    width: 150px;
+    position: absolute;
+}
+#squirtle {
+    background: url(http://lopdf.com.br/wp-content/uploads/2016/02/Squirtle-150x150.png);
+}
+#bulbasaur {
+    background: url(http://pokejungle.net/wp-content/uploads/2015/11/SPS-Bulbasaur-150x150.png);
+}
+#charizard{
+    background: url(https://pignite.files.wordpress.com/2013/12/150px-006charizard.png?w=474);
+}
