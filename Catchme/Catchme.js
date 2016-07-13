@@ -2,6 +2,7 @@
     var squirtle = document.getElementById("squirtle");
     var bulbasaur = document.getElementById("bulbasaur");
     var charizard = document.getElementById("charizard");
+    var body = document.body;
     var captured = 0;
     squirtle.addEventListener('click', rid(squirtle));
     bulbasaur.addEventListener('click', rid(bulbasaur));
@@ -26,7 +27,8 @@
 
     function rid(poke) {
         return function() {
-            poke.style.backgroundImage = "none";
+            //poke.style.backgroundImage = "none";
+            body.removeChild(poke);
             captured++;
             if (captured == 3) {
                 alert("Congratulations! \n You've Caught them all!");
