@@ -16,20 +16,27 @@ window.onload = function(){
 			x: Math.random()*W,
 			y: Math.random()*H,
 			r: Math.random()*4+1,
-			d: Math.random()*mp
+			d: Math.random()*mp,
+			rgba: " " + (Math.random() * 255) + " ," + (Math.random() * 255) + " ," + (Math.random() * 255) + " ",
+			rgbc:  randomColor() + " ," + randomColor() + " ," + randomColor(),
 		});
+	}
+	
+	function randomColor(){
+		return Math.floor(Math.random()*255);
 	}
 	
 	function draw()
 	{
 		ctx.clearRect(0, 0, W, H);
 		
-		ctx.fillStyle = "rgb(255,255,255)"; //"rgb(" + Math.floor(Math.random()*256)+"," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")";
+		//ctx.fillStyle = "rgb(" + p.rgbc + ")";
 		ctx.beginPath();
 		for(var i = 0; i < mp; i++)
 		{
 			var p = particles[i];
 			ctx.moveTo(p.x, p.y);
+			ctx.fillStyle = "rgb(" + p.rgbc + ")";
 			ctx.fillRect(p.x, p.y, 10, 10);
 		}
 		update();
@@ -45,7 +52,8 @@ window.onload = function(){
 
 			if(p.x > W || p.x < 0 || p.y > H)
 			{
-					particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};
+					particles[i].x =  Math.random()*W
+					particles[i].y =  -10;
 			}
 		}
 	}
