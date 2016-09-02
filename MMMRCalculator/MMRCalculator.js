@@ -21,7 +21,7 @@ function finish() {
     mean = meanFind();
     median = medianFind();
     modeFind();
-    range = sortedList[sortedList.length - 1] - sortedList[0];
+    range = Math.round((sortedList[sortedList.length - 1] - sortedList[0]) * 1000000 ) / 1000000;
 
     document.getElementById('list').value = sortedList;
     document.getElementById('mean').innerHTML = mean;
@@ -35,15 +35,15 @@ function finish() {
 function meanFind() {
     mean = 0;
     for (var i = 0; i < sortedList.length; i++) {
-        mean += parseInt(sortedList[i]);
+        mean += parseFloat(sortedList[i]);
     }
     return mean / sortedList.length;
 }
 
 function medianFind() {
     if (sortedList.length % 2 == 0) {
-        var top = parseInt(sortedList[sortedList.length / 2]);
-        var bottom = parseInt(sortedList[sortedList.length / 2 - 1]);
+        var top = parseFloat(sortedList[sortedList.length / 2]);
+        var bottom = parseFloat(sortedList[sortedList.length / 2 - 1]);
         return (bottom + top) / 2;
     }
     else {
@@ -88,7 +88,7 @@ function merge(left, right) {
         ir = 0;
 
     while (il < left.length && ir < right.length) {
-        if (parseInt(left[il]) < parseInt(right[ir])) {
+        if (parseFloat(left[il]) < parseFloat(right[ir])) {
             result.push(left[il++]);
         }
         else {
