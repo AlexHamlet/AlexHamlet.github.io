@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="MMRCalculator.css" type="text/css" />
 
 <body>
     <h1>Mean, Median, Mode, and Range Calculator</h1>
+    <div id="genCont">
+        <h2>List</h2>
+        <input id="list" type="text" />
+        <input id="submit" type="submit" onclick="finish()" value="Find" />
 
-    <h2>List</h2>
-    <input id="list" type="text" name="Fazio" />
-    <input id="submit" type="submit" onclick="finish()" value="Find" />
-
-    <h2>Mean</h2>
-    <p id="mean"></p>
-    <h2>Median</h2>
-    <p id="median"></p>
-    <h2>Mode</h2>
-    <p id="mode"></p>
-    <h2>Range</h2>
-    <p id="range"></p>
+        <h2>Mean</h2>
+        <p id="mean"></p>
+        <h2>Median</h2>
+        <p id="median"></p>
+        <h2>Mode</h2>
+        <p id="mode"></p>
+        <h2>Range</h2>
+        <p id="range"></p>
+    </div>
 </body>
 <script type="text/javascript" src="MMRCalculator.js"></script>
 
