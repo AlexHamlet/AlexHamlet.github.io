@@ -37,14 +37,14 @@ function meanFind() {
     for (var i = 0; i < sortedList.length; i++) {
         mean += parseFloat(sortedList[i]);
     }
-    return mean / sortedList.length;
+    return Math.floor((mean / sortedList.length) * 1000000) / 1000000;
 }
 
 function medianFind() {
     if (sortedList.length % 2 == 0) {
         var top = parseFloat(sortedList[sortedList.length / 2]);
         var bottom = parseFloat(sortedList[sortedList.length / 2 - 1]);
-        return (bottom + top) / 2;
+        return Math.floor(((bottom + top) / 2) * 1000000) / 1000000;
     }
     else {
         return sortedList[Math.floor(sortedList.length / 2)];
