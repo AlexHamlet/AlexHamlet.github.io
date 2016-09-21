@@ -41,7 +41,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+/*The CSS begins!*/
 body{
     font-size: 10px;
     background: black;
@@ -49,8 +49,14 @@ body{
 h1{
     color: red;
     font-size: 3em;
-    width: 18em;
+    text-align: center;
     margin: .5em auto .5em auto;
+}
+#genCont{
+    width: 50em;
+    height: 40em;
+    background: #aaa;
+    margin: auto;
 }
 h2{
     font-size: 2em;
@@ -62,12 +68,6 @@ p{
 }
 input{
     font-size: 1.5em;
-    margin: .5em;
+    margin: .5em .1em .5em .2em;
     background: #aaa;
-}
-#genCont{
-    width: 50em;
-    height: 40em;
-    background: #aaa;
-    margin: auto;
 }

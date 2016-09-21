@@ -12,6 +12,14 @@ document.querySelector('#list').addEventListener('keypress', function(e) {
     }
 });
 
+function clearList(){
+    
+    document.getElementById('list').value = "";
+    document.getElementById('mean').innerHTML = "";
+    document.getElementById('median').innerHTML = "";
+    document.getElementById('mode').innerHTML = "";
+    document.getElementById('range').innerHTML = "";
+}
 function finish() {
 
     list = document.getElementById('list').value;
