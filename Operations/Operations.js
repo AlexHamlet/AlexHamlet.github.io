@@ -126,6 +126,8 @@ document.getElementById('addeDiv').addEventListener('keypress', function(e) {
         var answer = parseInt(document.getElementById("firstNumAddEqual").value);
         answer += parseInt(document.getElementById('secondNumAddEqual').value);
         document.getElementById("AddEqualAns").innerHTML = answer;
+        document.getElementById("firstNumAddEqual").value = answer;
+        document.getElementById('secondNumAddEqual').value =  "";
     }
 });
 
@@ -135,6 +137,8 @@ document.getElementById('subeDiv').addEventListener('keypress', function(e) {
         var answer = parseInt(document.getElementById("firstNumSubEqual").value);
         answer -= parseInt(document.getElementById('secondNumSubEqual').value);
         document.getElementById("SubEqualAns").innerHTML = answer;
+        document.getElementById("firstNumSubEqual").value = answer;
+        document.getElementById('secondNumSubEqual').value =  "";
     }
 });
 
@@ -144,6 +148,8 @@ document.getElementById('multeDiv').addEventListener('keypress', function(e) {
         var answer = parseInt(document.getElementById("firstNumMultEqual").value);
         answer *= parseInt(document.getElementById('secondNumMultEqual').value);
         document.getElementById("MultEqualAns").innerHTML = answer;
+        document.getElementById("firstNumMultEqual").value = answer;
+        document.getElementById('secondNumMultEqual').value =  "";
     }
 });
 
@@ -153,6 +159,8 @@ document.getElementById('diveDiv').addEventListener('keypress', function(e) {
         var answer = parseInt(document.getElementById("firstNumDivEqual").value);
         answer /= parseInt(document.getElementById('secondNumDivEqual').value);
         document.getElementById("DivEqualAns").innerHTML = answer;
+        document.getElementById("firstNumDivEqual").value = answer;
+        document.getElementById('secondNumDivEqual').value =  "";
     }
 });
 
@@ -162,6 +170,8 @@ document.getElementById('modeDiv').addEventListener('keypress', function(e) {
         var answer = parseInt(document.getElementById("firstNumModEqual").value);
         answer %= parseInt(document.getElementById('secondNumModEqual').value);
         document.getElementById("ModEqualAns").innerHTML = answer;
+        document.getElementById("firstNumModEqual").value = answer;
+        document.getElementById('secondNumModEqual').value =  "";
     }
 });
 
