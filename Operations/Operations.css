@@ -136,31 +136,32 @@ table {
 
 body {
 	font-size: 10px;
+	background-color: #40e0d0;
 }
 
 h1 {
 	padding: .3em;
-	font-size: 3em;
+	font-size: 4em;
 	text-align: center;
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 3em;
 	font-style: bold;
 }
 
 div {
 	width: 35%;
-	height: 7em;
+	height: 8em;
 	margin: 1em auto 1em auto;
 	padding: 1em;
-	background-color: #cccccc;
+	background-color: #32cd32;
 }
 
 p,
 input {
 	display: inline;
-	font-size: 1em;
+	font-size: 2em;
 	margin: .1em;
 }
 
