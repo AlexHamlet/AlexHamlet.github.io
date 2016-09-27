@@ -151,7 +151,7 @@ h2 {
 }
 
 div {
-	width: 35%;
+	width: 50%;
 	height: 8em;
 	margin: 1em auto 1em auto;
 	padding: 1em;
@@ -165,6 +165,15 @@ input {
 	margin: .1em;
 }
 
+input{
+	width: 30%;
+}
+
+input[type=checkbox]{
+	width: auto;
+}
+
 .answer {
 	display: block;
 }
+
