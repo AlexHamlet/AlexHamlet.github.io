@@ -21,7 +21,7 @@
     var sctx = sc.getContext("2d");
     sc.height = ring3;
     sc.width = ring3;
-    sctx.font = "4em Courier New";
+    sctx.font = "2em Courier New";
     sctx.beginPath();
     sctx.arc(ring3 / 2, ring3 / 2, ring3 / 2 - 1, 0, 2 * Math.PI);
     sctx.stroke();
@@ -32,7 +32,7 @@
     var mctx = mc.getContext("2d");
     mc.height = ring2;
     mc.width = ring2;
-    mctx.font = "6em Comic Sans MS";
+    mctx.font = "4em Comic Sans MS";
     mctx.beginPath();
     mctx.arc(ring2 / 2, ring2 / 2, ring2 / 2 - 1, 0, 2 * Math.PI);
     mctx.stroke();
@@ -43,7 +43,7 @@
     var hctx = hc.getContext("2d");
     hc.height = size;
     hc.width = size;
-    hctx.font = "8em Impact";
+    hctx.font = "6em Impact";
     hctx.beginPath();
     hctx.arc(size / 2, size / 2, size / 2 - 1, 0, 2 * Math.PI);
     hctx.stroke();
