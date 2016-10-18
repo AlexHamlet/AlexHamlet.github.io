@@ -1,14 +1,5 @@
 (function() {
-    
-    //sizing tests
-    if(window.innerHeight > window.innerWidth){
-        var size = window.innerWidth -50;
-    }
-    else{
-        var size = window.innerHeight -50;
-    }
-    var ring2 = size / 5 * 4;
-    var ring3 = size / 5 * 3;
+    /*This is raw awesomeness ;) nice job!*/
 
     //attempt at getting the time
     var date = new Date();
@@ -19,61 +10,55 @@
     //draws inner circle
     var sc = document.getElementById("seconds");
     var sctx = sc.getContext("2d");
-    sc.height = ring3;
-    sc.width = ring3;
-    sctx.font = "2em Courier New";
+    sctx.font = "12px Courier New";
     sctx.beginPath();
-    sctx.arc(ring3 / 2, ring3 / 2, ring3 / 2 - 1, 0, 2 * Math.PI);
+    sctx.arc(150, 150, 149, 0, 2 * Math.PI);
     sctx.stroke();
     initSeconds();
 
     //draws middle circle
     var mc = document.getElementById("minutes");
     var mctx = mc.getContext("2d");
-    mc.height = ring2;
-    mc.width = ring2;
-    mctx.font = "4em Comic Sans MS";
+    mctx.font = "16px Comic Sans MS";
     mctx.beginPath();
-    mctx.arc(ring2 / 2, ring2 / 2, ring2 / 2 - 1, 0, 2 * Math.PI);
+    mctx.arc(250, 250, 249, 0, 2 * Math.PI);
     mctx.stroke();
     initMinutes();
 
     //draws outer circle
     var hc = document.getElementById("hours");
     var hctx = hc.getContext("2d");
-    hc.height = size;
-    hc.width = size;
-    hctx.font = "6em Impact";
+    hctx.font = "20px Impact";
     hctx.beginPath();
-    hctx.arc(size / 2, size / 2, size / 2 - 1, 0, 2 * Math.PI);
+    hctx.arc(350, 350, 349, 0, 2 * Math.PI);
     hctx.stroke();
     initHours();
     
-    
+    //<insert acknowledgement that 12 is less than 60 here>
     function initSeconds() {
-        sctx.translate(ring3 / 2, ring3 / 2);
+        sctx.translate(150, 150);
         sctx.rotate(-seconds);
         for (var i = 1; i <= 12; i++) {
             sctx.rotate(Math.PI / 6);
-            sctx.fillText((i * 5) % 60, -5, -ring3 / 2 + 60);
+            sctx.fillText((i * 5) % 60, -5, -135);
         }
     }
 
     function initMinutes() {
-        mctx.translate(ring2 / 2, ring2 / 2);
+        mctx.translate(250, 250);
         mctx.rotate(-minutes);
         for (var i = 1; i <= 12; i++) {
             mctx.rotate(Math.PI / 6);
-            mctx.fillText((i * 5) % 60, -7, -ring2 / 2 + 60);
+            mctx.fillText((i * 5) % 60, -7, -232);
         }
     }
 
     function initHours() {
-        hctx.translate(size / 2, size / 2);
+        hctx.translate(350, 350);
         hctx.rotate(-hour);
         for (var i = 1; i <= 12; i++) {
             hctx.rotate(Math.PI / 6);
-            hctx.fillText(i, -9, -size / 2 + 70);
+            hctx.fillText(i, -9, -329);
         }
     }
 

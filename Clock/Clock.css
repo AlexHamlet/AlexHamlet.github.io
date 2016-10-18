@@ -1,15 +1,13 @@
 body {
     background: #cccccc;
-    font-size: 10px;
+    Height: 690px;
 }
 
 h1 {
-    font-size: 8em;
-    top: 45%;
-    position: absolute;
-    margin: auto;
-    width: 100%;
-    vertical-align: middle;
+    position:absolute;
+    left: 500px;
+    padding: 300px 0px 10px 0px;
+    Width: 500px;
     text-align: center;
     font-family: "Times New Roman", Times, serif;
 }
@@ -22,33 +20,30 @@ p {
 
 canvas {
     position: absolute;
-    margin: auto;
+    top: 5px;
+    left: 752px;
 }
 
 #hours {
     font: 20px;
-    left: 25%;
-    position: absolute;
-    margin: auto;
     font-family: Impact, Charcoal, sans-serif;
+    left: 402px;
     animation: round 43200s 0s infinite linear;
 }
 
 #minutes {
     font: 16px;
-    position: absolute;
-    top: 10%;
-    left: 30%;
     font-family: "Comic Sans MS", cursive, sans-serif;
+    left: 502px;
+    top: 100px;
     animation: round 3600s 0s infinite linear;
 }
 
 #seconds {
     font: 12px;
-    position: absolute;
-    top: 20%;
-    left: 35%;
     font-family: "Courier New", Courier, monospace;
+    left: 602px;
+    top: 200px;
     animation: round 60s 0s infinite linear;
 }
 
