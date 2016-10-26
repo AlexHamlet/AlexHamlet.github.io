@@ -110,6 +110,12 @@ footer {
     color: white;
 }
 
+img{
+    height:200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
 .parallax {
     Height: 1000px;
     background-image: url(http://sandboxmind.org/images/gticlassroom.jpg);
@@ -120,7 +126,7 @@ footer {
 }
 
 .project {
-    width: 40em;
+    width: 30em;
     display: inline-block;
     text-align: center;
     margin: 1em auto;
