@@ -24,8 +24,10 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+    font-size: 10px;
 	line-height: 1;
 	background: repeat url(https://lh3.googleusercontent.com/z1v4zGQ9PUFWJhNwiEgq9BW64j4tMZAhmqdIunD56lKT0dfCCyPt1fu_rKDblUYjcs_DCA=s85);
+	background-color: #555;
 }
 ol, ul {
 	list-style: none;
@@ -45,25 +47,22 @@ table {
 
 
 h1 {
-    font: 20px/50px Impact;
+    font: 2.5em/2em Impact;
     background: #000000;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 1.5em auto;
     text-align: center;
-    text-indent: 5px;
+    text-indent: .5em;
     color: #ffffff;
 }
 p {
-    font: 15px/30px Comic Sans;
+    font: 2em/2em Comic Sans;
     text-align: left;
-    width: 700px;
+    width: 50%;
     margin: auto;
-    border: 1px solid;
+    border: .1em solid;
     background-color: #777777;
     background: linear-gradient( 90deg, red, orange, yellow, green, blue, purple );
-    text-indent: 5px;
-}
-body{
-    height: 500px;
+    text-indent: .5em;
 }
 #footer {
     position: fixed;
