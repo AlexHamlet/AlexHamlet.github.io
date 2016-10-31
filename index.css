@@ -54,10 +54,13 @@ h1 {
     text-indent: .5em;
     color: #ffffff;
 }
+a{
+    color: black;
+}
 p {
     font: 2em/2em Comic Sans;
     text-align: left;
-    width: 50%;
+    width: 60%;
     margin: auto;
     border: .1em solid;
     background-color: #777777;
