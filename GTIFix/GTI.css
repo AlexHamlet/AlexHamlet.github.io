@@ -140,7 +140,7 @@ img{
     background-color: black;
     color: white;
     width: 100%;
-    overflow: auto;
+    overflow: visible;
 }
 
 #linkback,
@@ -197,4 +197,10 @@ img{
     background-color: #cccccc;
     margin: auto;
     text-align: center;
+}
+
+@media screen and (max-width: 1005px) {
+    #head {
+        height: 9em;
+    }
 }
