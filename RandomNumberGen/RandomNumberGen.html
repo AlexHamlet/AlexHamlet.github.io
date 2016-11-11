@@ -5,12 +5,18 @@
 <body>
     <h1>Random Number Generator</h1>
     <div id="content">
-        <p>Between</p>
+        <p>Generate Numbers Between</p>
         <input id="low" type="text" name="" />
-        <p>and</p>
+        <p id="and">and</p>
         <input id="high" type="text" name="" />
-        <p>How Many?</p>
+        <p>How Many Numbers To Generate?</p>
         <input id="many" type="text" name="" />
+        <form action="">
+            <input type="radio" class="radio" name="option" id="int" checked="checked" />
+            <label for="y">Integers Only</label>
+            <input type="radio" class="radio" name="option" id="dec" />
+            <label for="y">Allow Decimals</label>
+        </form>
         <!--<input type="submit" name="" onclick="NumGen"/>-->
         <p id="numbers"></p>
     </div>

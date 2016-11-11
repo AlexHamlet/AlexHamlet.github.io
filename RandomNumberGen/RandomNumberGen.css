@@ -139,18 +139,31 @@ body{
     background: black;
     color: white;
     text-align: center;
-    margin: .1em;
+    margin: .3em;
     overflow: auto;
 }
 
 h1{
-    font-size: 3em;
+    font-size: 4em;
     color: yellow;
+    margin: .2em auto .2em auto;
 }
 
 p{
-    font-size: 1.5em;
+    font-size: 2em;
     color: black;
+    margin: .3em auto .3em auto;
+}
+
+input[type=text]{
+    font-size: 1.75em;
+    width: 5em;
+    margin: .1em auto .1em auto;
+}
+
+label{
+    color: black;
+    font-size: 1.75em;
 }
 
 #content{
@@ -162,4 +175,13 @@ p{
 #numbers{
     width: 90%;
     margin: auto;
+}
+
+#and{
+    display: inline;
+}
+
+#many{
+    margin: auto;
+    display: block;
 }
