@@ -59,7 +59,7 @@ function genMines() {
 
 
 function vNewGame() {
-
+    window.location.reload();
 }
 
 function vClick(m, p) {
