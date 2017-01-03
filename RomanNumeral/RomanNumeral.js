@@ -61,6 +61,9 @@ function calculatenum(num) {
         num -= 4;
         document.getElementById('numerals').innerHTML += "IV";
     }
+    if(!(num > 0)){
+        document.getElementById('numerals').innerHTML = "Invalid Character";
+    }
     while (num >= 1) {
         num -= 1;
         document.getElementById('numerals').innerHTML += "I";
