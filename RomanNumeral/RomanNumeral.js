@@ -13,6 +13,9 @@ document.body.addEventListener('keypress', function(e) {
 });
 
 function calculatenum(num) {
+    if(!(num > 0)){
+        document.getElementById('numerals').innerHTML = "Invalid Character";
+    }
     while (num >= 1000) {
         num -= 1000;
         document.getElementById("numerals").innerHTML += "M";
@@ -60,9 +63,6 @@ function calculatenum(num) {
     if (num == 4) {
         num -= 4;
         document.getElementById('numerals').innerHTML += "IV";
-    }
-    if(!(num > 0)){
-        document.getElementById('numerals').innerHTML = "Invalid Character";
     }
     while (num >= 1) {
         num -= 1;
