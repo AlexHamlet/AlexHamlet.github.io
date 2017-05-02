@@ -44,7 +44,8 @@ table {
 /*The CSS begins!*/
 body{
 	font: 10px;
-	background: #9540ce;
+	height: 100%;
+	background: linear-gradient(90deg, black, #cc33ff, black);
 	text-align: center;
 	border: 0 0 2em 0;
 	margin: .5em 0 .5em 0;
@@ -55,17 +56,15 @@ h1{
 }
 
 h2{
-	font-size: .5em;
+	font-size: .9em;
 }
 
 label{
-	display: block;
 	text-align: left;
 }
 
 input{
-	display: block;
-	margin-left: 3em;
+	margin-left: 2em;
 }
 
 #genCont{
@@ -86,4 +85,9 @@ input{
 	height: 2em;
 	margin: 1em 0 1em 3em;
 	
+}
+
+#confirm{
+	font-size: 1em;
+	margin: auto;
 }
