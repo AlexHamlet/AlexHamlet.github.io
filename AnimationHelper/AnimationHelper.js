@@ -1,19 +1,41 @@
 var frames, layer;
 const size = 4;
 let currentFrame = 0;
-let layer0, layer1, layer2, layer3 = [];
+let layer0, layer1, layer2, layer3;
+let layers = [layer0, layer1, layer2, layer3];
 let layerCompile = [];
 let tempLayer;
 
+for(var p = 0; p < layers.length;p++){
+    layers[p] = [];
+}
+
 function generateTable() {
+
+    document.getElementById("nav").innerHTML = "<input type=\"Submit\" value=\"Previous\" onclick=\"previousFrame()\"/>" +
+        "<input type=\"Submit\" Value=\"Finish\" onclick=\"finishCode()\"/>" +
+        "<input type=\"Submit\" value=\"Next\" onclick=\"nextFrame()\" />";
     formBuilder(frames);
 }
 
 function formBuilder() {
+    
     for (var p = 0; p < size; p++) {
         layer = "Layer " + (p + 1) + "of frame " + (currentFrame + 1);
-        layer += '<div class="row"><input type="radio" class="led30" /><input type="radio" class="led31" /><input type="radio" class="led32" /><input type="radio" class="led33" /></div><div class="row"><input type="radio" class="led20" /><input type="radio" class="led21" /><input type="radio" class="led22" /><input type="radio" class="led23" /></div><div class="row"><input type="radio" class="led10" /><input type="radio" class="led11" /><input type="radio" class="led12" /><input type="radio" class="led13" /></div><div class="row"><input type="radio" class="led00" /><input type="radio" class="led01" /><input type="radio" class="led02" /><input type="radio" class="led03" /></div>';
+        layer += "<div class=\"row3\"><input type=\"checkbox\" class=\"led12\" /><input type=\"checkbox\" class=\"led13\" /><input type=\"checkbox\" class=\"led14\" /><input type=\"checkbox\" class=\"led15\" /></div> " +
+            "<div class=\"row2\"><input type=\"checkbox\" class=\"led8\" /><input type=\"checkbox\" class=\"led9\" /><input type=\"checkbox\" class=\"led10\" /><input type=\"checkbox\" class=\"led11\" /></div> " +
+            "<div class=\"row1\"><input type=\"checkbox\" class=\"led4\" /><input type=\"checkbox\" class=\"led5\" /><input type=\"checkbox\" class=\"led6\" /><input type=\"checkbox\" class=\"led7\" /></div> " +
+            "<div class=\"row0\"><input type=\"checkbox\" class=\"led0\" /><input type=\"checkbox\" class=\"led1\" /><input type=\"checkbox\" class=\"led2\" /><input type=\"checkbox\" class=\"led3\" /></div> ";
         document.getElementById("layer" + p).innerHTML = layer;
+    }
+    
+    if(layers[0][currentFrame] != undefined)
+    for(var p = 0;p < size; p++){
+        tempLayer = layers[p];
+        for(var s = 0; s < 16; s++){
+            var x = document.querySelectorAll(".led" + s);
+            x[p].checked = tempLayer[currentFrame][s];
+        }
     }
 }
 
@@ -36,25 +58,15 @@ function finishCode() {
 }
 
 function saveFrame() {
-    // for(var p = 0;p < size;p++){
-    //     layerCompile = [];
-    //     tempLayer = document.getElementById("layer" + p);
-    //     layerCompile.push(tempLayer.getElementsByClassName("led00"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led01"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led02"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led03"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led10"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led11"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led12"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led13"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led20"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led21"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led22"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led23"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led30"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led31"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led32"));
-    //     layerCompile.push(tempLayer.getElementsByClassName("led33"));
-    //     layer0.push(layerCompile);
-    // }
+    for (var p = 0; p < size; p++) {
+        tempLayer = p;
+        layerCompile = [];
+        for (var s = 0; s < 16; s++) {
+            var x = document.querySelectorAll(".led" + s);
+            layerCompile.push(x[tempLayer].checked);
+
+        }
+        //layers[p].push(layerCompile);
+        layers[p][currentFrame] = layerCompile;
+    }
 }
