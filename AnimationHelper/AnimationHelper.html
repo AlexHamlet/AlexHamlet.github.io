@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="AnimationHelper.css" type="text/css" />
+    <script type="text/javascript" src="AnimationHelper.js"></script>
+</head>
+<h1>Animation Helper</h1>
+<h2> (a Javascript program to write c for a 4x4x4 led cube)</h2>
+
+<body>
+    <div id="layer0">
+        <input type="submit" value="Begin" onclick="generateTable()" />
+        <p>Welcome!</p>
+    </div>
+    <div id="layer1">
+        <p>This program uses javascript to write c code for an led cube.</p>
+    </div>
+    <div id="layer2">
+        <p>To use this program, click the buttons corresponding to the led you would like to be on. (Layer 1 is the bottom)</p>
+    </div>
+    <div id="layer3">Use the next and previous buttons to change frames of your animation and hit finish to receive the code.</div>
+    <div id="nav">
+        <input type="Submit" value="Previous" onclick="previousFrame()"/>
+        <input type="Submit" Value="Finish" onclick="finishCode()"/>
+        <input type="Submit" value="Next" onclick="nextFrame()" />
+    </div>
+    <div id="endCode"></div>
+</body>
+
+</html>

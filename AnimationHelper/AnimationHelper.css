@@ -1,0 +1,11 @@
+html {
+    font: 10px;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+
+h2 {
+  font-size: .7em;
+  color: blue;
+}
