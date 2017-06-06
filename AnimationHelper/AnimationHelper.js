@@ -27,6 +27,9 @@ function generateTable() {
     document.getElementById("nav").innerHTML = "<input type=\"Submit\" value=\"Previous\" onclick=\"previousFrame()\"/>" +
         "<input type=\"Submit\" Value=\"Finish\" onclick=\"finishCode()\"/>" +
         "<input type=\"Submit\" value=\"Next\" onclick=\"nextFrame()\" />";
+    document.getElementById("nav2").innerHTML = "<input type=\"Submit\" value=\"Delete Frame\" onclick=\"deleteFrame()\"/>" +
+        "<input type=\"Submit\" Value=\"Insert Frame\" onclick=\"insertFrame()\"/>" +
+        "<input type=\"Submit\" value=\"Copy to Next\" onclick=\"copyNext()\" />";
     formBuilder();
 }
 
@@ -60,11 +63,9 @@ function previousFrame() {
 }
 
 function nextFrame() {
-    if (layers[0][currentFrame + 1] != undefined || confirm("Create new frame? \n This cannot be undone.")) {
-        saveFrame();
-        currentFrame++;
-        formBuilder();
-    }
+    saveFrame();
+    currentFrame++;
+    formBuilder();
 }
 
 function finishCode() {
@@ -205,4 +206,31 @@ function saveFrame() {
 
 function checkTrue(value) {
     return (value == true);
+}
+
+function deleteFrame() {
+    if (layers[0].length > 1) {
+        for (var p = 0; p < size; p++) {
+            layers[p].splice(currentFrame, 1);
+        }
+        if (currentFrame > 0) {
+            currentFrame -= 1;
+        }
+        formBuilder();
+    }
+}
+
+function insertFrame() {
+    for (var p = 0; p < size; p++) {
+        layers[p].splice(currentFrame, 0, []);
+    }
+    formBuilder();
+}
+
+function copyNext() {
+    saveFrame();
+    for (var p = 0; p < size; p++) {
+        layers[p][currentFrame + 1] = layers[p][currentFrame];
+    }
+    nextFrame();
 }
