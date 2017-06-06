@@ -15,6 +15,8 @@ let layers = [layer0, layer1, layer2, layer3];
 let layerCompile = [];
 let totalFrames = 0;
 let generatedCode = "";
+let codeName = "";
+let setup = "";
 
 for (var p = 0; p < layers.length; p++) {
     layers[p] = [];
@@ -25,7 +27,7 @@ function generateTable() {
     document.getElementById("nav").innerHTML = "<input type=\"Submit\" value=\"Previous\" onclick=\"previousFrame()\"/>" +
         "<input type=\"Submit\" Value=\"Finish\" onclick=\"finishCode()\"/>" +
         "<input type=\"Submit\" value=\"Next\" onclick=\"nextFrame()\" />";
-    formBuilder(frames);
+    formBuilder();
 }
 
 function formBuilder() {
@@ -66,14 +68,96 @@ function nextFrame() {
 }
 
 function finishCode() {
+
     saveFrame();
     totalFrames = layers[0].length;
-    var codeName = prompt("What will your animation be called?");
+    codeName = prompt("What will your animation be called?");
     if (codeName == "") {
         codeName = "iWouldHavePreferedAName";
     }
 
-    generatedCode = "";
+    setup = "int l0 = 3;\n" +
+        "int l1 = 4;\n" +
+        "int l2 = 5;\n" +
+        "int l3 = 6;\n\n" +
+
+        "int x0y0 = A4;\n" +
+        "int x0y1 = A3;\n" +
+        "int x0y2 = A2;\n" +
+        "int x0y3 = A1;\n\n" +
+
+        "int x1y0 = A5;\n" +
+        "int x1y1 = A0;\n" +
+        "int x1y2 = 8;\n" +
+        "int x1y3 = 9;\n\n" +
+
+        "int x2y0 = 1;\n" +
+        "int x2y1 = 7;\n" +
+        "int x2y2 = 10;\n" +
+        "int x2y3 = 11;\n\n" +
+
+        "int x3y0 = 0;\n" +
+        "int x3y1 = 2;\n" +
+        "int x3y2 = 12;\n" +
+        "int x3y3 = 13;\n\n" +
+
+        "int col0[] = {x0y0, x0y1, x0y2, x0y3};\n" +
+        "int col1[] = {x1y0, x1y1, x1y2, x1y3};\n" +
+        "int col2[] = {x2y0, x2y1, x2y2, x2y3};\n" +
+        "int col3[] = {x3y0, x3y1, x3y2, x3y3};\n" +
+        "int led[4][4] = {{x0y0, x0y1, x0y2, x0y3}, {x1y0, x1y1, x1y2, x1y3}, {x2y0, x2y1, x2y2, x2y3}, {x3y0, x3y1, x3y2, x3y3}};\n" +
+        "int layer[] = {l0, l1, l2, l3};\n\n" +
+
+        "int timedelay = 200;\n" +
+        "int animationtime = 50;\n" +
+        "int rows = 4;\n" +
+        "int columns = 4;\n" +
+        "int layers = 4;\n\n" +
+
+        "void setup() {\n\n" +
+
+        "pinMode(l0, OUTPUT);\n" +
+        "pinMode(l1, OUTPUT);\n" +
+        "pinMode(l2, OUTPUT);\n" +
+        "pinMode(l3, OUTPUT);\n\n" +
+
+        "pinMode(x0y0, OUTPUT);\n" +
+        "pinMode(x0y1, OUTPUT);\n" +
+        "pinMode(x0y2, OUTPUT);\n" +
+        "pinMode(x0y3, OUTPUT);\n\n" +
+
+        "pinMode(x1y0, OUTPUT);\n" +
+        "pinMode(x1y1, OUTPUT);\n" +
+        "pinMode(x1y2, OUTPUT);\n" +
+        "pinMode(x1y3, OUTPUT);\n\n" +
+
+        "pinMode(x2y0, OUTPUT);\n" +
+        "pinMode(x2y1, OUTPUT);\n" +
+        "pinMode(x2y2, OUTPUT);\n" +
+        "pinMode(x2y3, OUTPUT);\n\n" +
+
+        "pinMode(x3y0, OUTPUT);\n" +
+        "pinMode(x3y1, OUTPUT);\n" +
+        "pinMode(x3y2, OUTPUT);\n" +
+        "pinMode(x3y3, OUTPUT);\n" +
+        "}\n\n\n" +
+
+        "void loop() {\n" +
+        codeName + "();" +
+        "\n}\n\n" +
+
+        "void clear() {\n" +
+        "for (int p = 0; p < rows; p++) {\n" +
+        "for (int s = 0; s < columns; s++) {\n" +
+        "digitalWrite(led[p][s], LOW);\n" +
+        "}\n" +
+        "}\n" +
+        "for (int p = 0; p < layers; p++) {\n" +
+        "digitalWrite(layer[p], LOW);\n" +
+        "}\n" +
+        "}\n\n"
+
+    generatedCode = setup;
     tempText = "";
 
     generatedCode += "void " + codeName + "() { \n" + "clear();\n";
