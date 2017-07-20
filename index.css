@@ -80,3 +80,7 @@ p {
   80%  { background: blue; }
   90% { background: purple; }
 }
+
+#list{
+    margin: 2em auto 2em auto;
+}
