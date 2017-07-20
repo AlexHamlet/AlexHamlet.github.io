@@ -1,5 +1,29 @@
-body{
+body {
+    font-size: 10px;
     margin: auto;
     width: 50%;
     text-align: center;
+}
+
+h1 {
+    font-size: 5em;
+}
+
+#correct {
+    font-size: 1.6em;
+    color: green;
+}
+
+#right {
+    font-size: 1.9em;
+    position: fixed;
+    top: 1em;
+    right: 7em;
+}
+
+#left {
+    font-size: 1.9em;
+    position: fixed;
+    top: 1em;
+    right: 14em;
 }
