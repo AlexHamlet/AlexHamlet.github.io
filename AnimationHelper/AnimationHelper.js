@@ -1,13 +1,11 @@
-//TODO add delete button
-//TODO add insert button
-//TODO add copy to next
+//TODO Copy Frame to Frame ___
 
 /*Notes:
 The three dimensional array contains: Layers, Frames, and Leds.  In that order.
 The generated code abuses persistence of vision, look it up!
 */
 
-var frames, layer, tempLayer, tempText;
+var layer, tempLayer, tempText;
 const size = 4;
 let currentFrame = 0;
 let layer0, layer1, layer2, layer3;
@@ -30,6 +28,7 @@ function generateTable() {
     document.getElementById("nav2").innerHTML = "<input type=\"Submit\" value=\"Delete Frame\" onclick=\"deleteFrame()\"/>" +
         "<input type=\"Submit\" Value=\"Insert Frame\" onclick=\"insertFrame()\"/>" +
         "<input type=\"Submit\" value=\"Copy to Next\" onclick=\"copyNext()\" />";
+    document.getElementById("nav3").innerHTML = "<input type=\"Submit\" value=\"Copy Multiple Frames\" onclick=\"copyMultiFrames()\"/>";
     formBuilder();
 }
 
@@ -233,4 +232,30 @@ function copyNext() {
         layers[p][currentFrame + 1] = layers[p][currentFrame];
     }
     nextFrame();
+}
+
+function copyMultiFrames() {
+
+    saveFrame();
+
+    let firstCopy = 0;
+    let lastCopy = 0;
+    let firstLocation = 0;
+
+    firstCopy = parseInt(prompt("Which frame would you like to begin the copy with?"));
+    do {
+        lastCopy = parseInt(prompt("Which frame would you like to end the copy on?"));
+    } while (lastCopy < firstCopy);
+    firstLocation = parseInt(prompt("Where is the first frame you would like to copy to?"));
+
+    if (firstCopy != "" && lastCopy != "" && firstLocation != "") {
+        for (var p = 0; p < lastCopy - firstCopy + 1; p++) {
+            for (var s = 0; s < size; s++) {
+                layers[s][firstLocation + p - 1] = layers[s][firstCopy + p - 1];
+            }
+        }
+    }
+    else {
+        alert("incomplete information received");
+    }
 }
