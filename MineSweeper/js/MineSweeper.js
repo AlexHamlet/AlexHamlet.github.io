@@ -72,7 +72,7 @@ function vClick(m, p) {
                 stop = true;
                 gameover = true;
                 for (var i = 0; i < mine.length; i++) {
-                    document.getElementById("img" + mine[i][0] + ',' + mine[i][1]).setAttribute("src", "MineSweeperImages/M.png");
+                    document.getElementById("img" + mine[i][0] + ',' + mine[i][1]).setAttribute("src", "img/M.png");
                 }
             }
         }
@@ -137,28 +137,28 @@ function vClick(m, p) {
             else {
                 switch (count) {
                     case 1:
-                        document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/1.jpg");
+                        document.getElementById("img" + m + ',' + p).setAttribute("src", "img/1.jpg");
                         break;
                     case 2:
-                        document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/2.jpg");
+                        document.getElementById("img" + m + ',' + p).setAttribute("src", "img/2.jpg");
                         break;
                     case 3:
-                        document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/3.jpg");
+                        document.getElementById("img" + m + ',' + p).setAttribute("src", "img/3.jpg");
                         break;
                     case 4:
-                        document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/4.jpg");
+                        document.getElementById("img" + m + ',' + p).setAttribute("src", "img/4.jpg");
                         break;
                     case 5:
-                        document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/5.png");
+                        document.getElementById("img" + m + ',' + p).setAttribute("src", "img/5.png");
                         break;
                     case 6:
-                        document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/6.jpg");
+                        document.getElementById("img" + m + ',' + p).setAttribute("src", "img/6.jpg");
                         break;
                     case 7:
-                        document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/7.jpg");
+                        document.getElementById("img" + m + ',' + p).setAttribute("src", "img/7.jpg");
                         break;
                     case 8:
-                        document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/8.jpg");
+                        document.getElementById("img" + m + ',' + p).setAttribute("src", "img/8.jpg");
                         break;
                     default:
                         break;
@@ -242,28 +242,28 @@ function rClick(m, p, p1, m1) {
     else {
         switch (count) {
             case 1:
-                document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/1.jpg");
+                document.getElementById("img" + m + ',' + p).setAttribute("src", "img/1.jpg");
                 break;
             case 2:
-                document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/2.jpg");
+                document.getElementById("img" + m + ',' + p).setAttribute("src", "img/2.jpg");
                 break;
             case 3:
-                document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/3.jpg");
+                document.getElementById("img" + m + ',' + p).setAttribute("src", "img/3.jpg");
                 break;
             case 4:
-                document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/4.jpg");
+                document.getElementById("img" + m + ',' + p).setAttribute("src", "img/4.jpg");
                 break;
             case 5:
-                document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/5.png");
+                document.getElementById("img" + m + ',' + p).setAttribute("src", "img/5.png");
                 break;
             case 6:
-                document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/6.jpg");
+                document.getElementById("img" + m + ',' + p).setAttribute("src", "img/6.jpg");
                 break;
             case 7:
-                document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/7.jpg");
+                document.getElementById("img" + m + ',' + p).setAttribute("src", "img/7.jpg");
                 break;
             case 8:
-                document.getElementById("img" + m + ',' + p).setAttribute("src", "MineSweeperImages/8.jpg");
+                document.getElementById("img" + m + ',' + p).setAttribute("src", "img/8.jpg");
                 break;
             default:
                 break;

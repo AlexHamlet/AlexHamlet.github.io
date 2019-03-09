@@ -26,7 +26,7 @@ footer, header, hgroup, menu, nav, section {
 body {
     font-size: 10px;
 	line-height: 1;
-	background: url(Images/Diamond.jpg);
+	background: url(../img/Diamond.jpg);
 	background-color: #555;
 }
 ol, ul {
