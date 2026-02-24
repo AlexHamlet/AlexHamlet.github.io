@@ -5,43 +5,37 @@ canvas.height = window.innerHeight;
 let centerx = canvas.width / 2;
 let centery = canvas.height / 2;
 
-let time = 0;
+let timeCS = 0;
+let lastTime = performance.now();
+
 let orbitingsquares = [];
 
 function animate() {
+  //Animation Loop
   clearFrame();
   incrementTime();
 
-  orbitingsquares.forEach((square) => updateOrbitingSquarePosition(square));
-  orbitingsquares.forEach((square) => drawSquare(square));
-  orbitingsquares.forEach((square) => drawLineToSquare(square));
+  orbitingsquares.forEach((square) => {
+    square.update();
+    square.draw();
+  });
 
   requestAnimationFrame(animate);
 }
 
 function clearFrame() {
+  //Clears screen to black
   drawRect(0, 0, canvas.width, canvas.height);
 }
 
-function drawLineToSquare(square) {
-  drawLine(
-    centerx,
-    centery,
-    square.xpos + square.width / 2,
-    square.ypos + square.height / 2,
-  );
-}
-
-function drawSquare(square) {
-  drawRect(square.xpos, square.ypos, square.width, square.height, square.color);
-}
-
-function drawRect(x, y, width, height, color = "rgba(0, 0, 0, 0.5)") {
+function drawRect(x, y, width, height, color = "rgba(0, 0, 0, 1)") {
+  //Draws a black rectangle unless otherwise specified.
   ctx.fillStyle = color;
   ctx.fillRect(x, y, width, height);
 }
 
 function drawLine(x1, y1, x2, y2, color = "white") {
+  //Draws a white line unless otherwise specified
   ctx.strokeStyle = color;
   ctx.beginPath();
   ctx.moveTo(x1, y1);
@@ -49,30 +43,70 @@ function drawLine(x1, y1, x2, y2, color = "white") {
   ctx.stroke();
 }
 
-function updateOrbitingSquarePosition(square) {
-  square.xpos =
-    centerx + Math.sin((square.speed * time) / 1000) * square.radius;
-  square.ypos =
-    centery + Math.cos((square.speed * time) / 1000) * square.radius;
-}
-
 function incrementTime() {
-  time += 1;
+  //Increments the time CS in CentiSeconds
+  const currentTime = performance.now();
+  const deltaTime = (currentTime - lastTime) / 10;
+  lastTime = currentTime;
+
+  timeCS += deltaTime;
 }
 
 class OrbitingSquare {
-  constructor(width, height, radius, color, speed) {
+  constructor(
+    orbitx,
+    orbity,
+    width,
+    height,
+    radius,
+    color,
+    speed,
+    line = true,
+  ) {
     this.xpos = 0;
     this.ypos = 0;
+    this.orbitx = orbitx;
+    this.orbity = orbity;
     this.width = width;
     this.height = height;
     this.radius = radius;
     this.color = color;
     this.speed = speed;
+    this.line = line;
+  }
+
+  update() {
+    //Advances the state of squares
+    this.updatePosition(timeCS);
+  }
+
+  draw() {
+    //Draws squares to screen
+    if (this.line) this.drawLineToSquare();
+    drawRect(this.xpos, this.ypos, this.width, this.height, this.color);
+  }
+
+  updatePosition(time) {
+    //Updates position
+    this.xpos =
+      this.orbitx + Math.sin((this.speed * time) / 1000) * this.radius;
+    this.ypos =
+      this.orbity + Math.cos((this.speed * time) / 1000) * this.radius;
+  }
+
+  drawLineToSquare() {
+    //Draws line from orbit point to center square
+    drawLine(
+      this.orbitx,
+      this.orbity,
+      this.xpos + this.width / 2,
+      this.ypos + this.height / 2,
+    );
   }
 }
 
 function generateSquares() {
+  //Fills the squares array with random squares.
   let numSquares = 500;
   let maxRadius = Math.min(centerx, centery);
   for (let i = 0; i < numSquares; i++) {
@@ -86,8 +120,10 @@ ${Math.floor(Math.random() * 256)}, 1)`;
 
     orbitingsquares.push(
       new OrbitingSquare(
-        maxRadius / 100,
-        maxRadius / 100,
+        centerx,
+        centery,
+        maxRadius / 50,
+        maxRadius / 50,
         radius,
         color,
         speed,
