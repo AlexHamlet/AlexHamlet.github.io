@@ -1,14 +1,25 @@
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-let centerx = canvas.width / 2;
-let centery = canvas.height / 2;
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
 
+const canvas = ref(null);
+let ctx;
+let centerx;
+let centery;
 let timeCS = 0;
 let lastTime = performance.now();
 
 let orbitingsquares = [];
+
+onMounted(() => {
+  const can = canvas.value;
+  ctx = can.getContext("2d");
+
+  centerx = can.width / 2;
+  centery = can.height / 2;
+
+  generateSquares();
+  animate();
+});
 
 function animate() {
   //Animation Loop
@@ -25,7 +36,7 @@ function animate() {
 
 function clearFrame() {
   //Clears screen to black
-  drawRect(0, 0, canvas.width, canvas.height);
+  drawRect(0, 0, canvas.value.width, canvas.value.height);
 }
 
 function drawRect(x, y, width, height, color = "rgba(0, 0, 0, 1)") {
@@ -53,6 +64,17 @@ function incrementTime() {
 }
 
 class OrbitingSquare {
+  xpos;
+  ypos;
+  orbitx;
+  orbity;
+  width;
+  height;
+  radius;
+  color;
+  speed;
+  line;
+
   constructor(
     orbitx,
     orbity,
@@ -131,6 +153,10 @@ ${Math.floor(Math.random() * 256)}, 1)`;
     );
   }
 }
+</script>
 
-generateSquares();
-animate();
+<template>
+  <canvas ref="canvas"></canvas>
+</template>
+
+<style scoped></style>
