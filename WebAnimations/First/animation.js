@@ -1,14 +1,34 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 let centerx = canvas.width / 2;
 let centery = canvas.height / 2;
+let canvasScaler = 0;
+let maxRadius = Math.min(centerx, centery);
 
 let timeCS = 0;
 let lastTime = performance.now();
 
 let orbitingsquares = [];
+
+window.addEventListener("resize", () => {
+  setCanvasSize();
+});
+
+function setCanvasSize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  centerx = canvas.width / 2;
+  centery = canvas.height / 2;
+  maxRadius = Math.min(centerx, centery);
+  canvasScaler = Math.min(canvas.height, canvas.width);
+
+  for (let p = 0; p < orbitingsquares.length; p++) {
+    orbitingsquares[p].orbitx = centerx;
+    orbitingsquares[p].orbity = centery;
+    orbitingsquares[p].width = maxRadius / 50;
+    orbitingsquares[p].height = maxRadius / 50;
+  }
+}
 
 function animate() {
   //Animation Loop
@@ -58,7 +78,7 @@ class OrbitingSquare {
     orbity,
     width,
     height,
-    radius,
+    radiusPercent,
     color,
     speed,
     line = true,
@@ -69,7 +89,7 @@ class OrbitingSquare {
     this.orbity = orbity;
     this.width = width;
     this.height = height;
-    this.radius = radius;
+    this.radiusPercent = radiusPercent;
     this.color = color;
     this.speed = speed;
     this.line = line;
@@ -89,9 +109,13 @@ class OrbitingSquare {
   updatePosition(time) {
     //Updates position
     this.xpos =
-      this.orbitx + Math.sin((this.speed * time) / 1000) * this.radius;
+      this.orbitx +
+      Math.sin((this.speed * time) / 1000) *
+        (this.radiusPercent * canvasScaler);
     this.ypos =
-      this.orbity + Math.cos((this.speed * time) / 1000) * this.radius;
+      this.orbity +
+      Math.cos((this.speed * time) / 1000) *
+        (this.radiusPercent * canvasScaler);
   }
 
   drawLineToSquare() {
@@ -108,9 +132,8 @@ class OrbitingSquare {
 function generateSquares() {
   //Fills the squares array with random squares.
   let numSquares = 500;
-  let maxRadius = Math.min(centerx, centery);
   for (let i = 0; i < numSquares; i++) {
-    let radius = Math.floor(Math.random() * maxRadius);
+    let radiusPercent = Math.floor(Math.random() * maxRadius) / canvasScaler;
     let color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)},
 ${Math.floor(Math.random() * 256)}, 1)`;
     let speed = Math.random() * 4 + 1;
@@ -124,7 +147,7 @@ ${Math.floor(Math.random() * 256)}, 1)`;
         centery,
         maxRadius / 50,
         maxRadius / 50,
-        radius,
+        radiusPercent,
         color,
         speed,
       ),
@@ -132,5 +155,6 @@ ${Math.floor(Math.random() * 256)}, 1)`;
   }
 }
 
+setCanvasSize();
 generateSquares();
 animate();
