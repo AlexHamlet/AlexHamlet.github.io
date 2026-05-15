@@ -26,8 +26,6 @@ class RobotArm {
     let remainingLength = this.armSegments.reduce(function (x, y) {
       return x + y;
     }, 0);
-
-    if()
   }
 
   // Calculate the positions of the joints and end effector
