@@ -10,13 +10,13 @@ let lastTime = performance.now();
 let arms = [];
 
 class RobotArm {
-  constructor(basex, basey, armSegmentLengths) {
+  constructor(basex, basey, armSegments) {
     this.basex = basex;
     this.basey = basey;
     this.armSegments = [];
     this.joints = [];
-    for (let p = 0; p < armSegmentLengths.length; p++) {
-      this.armSegments.push(armSegmentLengths[p]);
+    for (let p = 0; p < armSegments; p++) {
+      this.armSegments.push(50);
       this.joints.push(0);
     }
   }
@@ -35,39 +35,33 @@ class RobotArm {
     const dy = targetY - baseY;
     const distanceToTarget = Math.sqrt(dx ** 2 + dy ** 2);
 
-    // Check if the target is reachable
+    //Point at the target if out of range
     if (distanceToTarget > totalLength) {
       // If not reachable, set to maximum reach
       const maxReachAngle = Math.atan2(dy, dx);
-      this.joints = [maxReachAngle, 0, 0];
+      for (let p = 0; p < this.armSegments.length; p++) this.joints[p] = 0;
+      this.joints[0] = maxReachAngle;
       return;
     }
 
-    // For 3-segment arm: L1, L2, L3
-    const L1 = armLengths[0];
-    const L2 = armLengths[1];
-    const L3 = armLengths[2];
+    //Assumptions: Event arm count, equivalent length arms
+    if (this.armSegments.length % 2 == 0) {
+      const xsegments = this.armSegments.length / 2;
+      const xseglen = distanceToTarget / xsegments;
 
-    const L12 = L1 + L2;
-    const L123 = L12 + L3;
+      const a = this.armSegments[0];
+      const b = a;
+      const c = xseglen;
 
-    // Compute angles using geometric inverse kinematics
-    const alpha = Math.atan2(dy, dx);
-    const gamma = Math.acos(
-      (distanceToTarget ** 2 - L3 ** 2 - L12 ** 2) / (2 * L12 * L3),
-    );
-    const theta3 = gamma;
+      const angle = (a ** 2 + c ** 2 - b ** 2) / (2 * a * c);
+      let bend = Math.PI - 2 * angle;
 
-    const beta = Math.atan2(L3 * Math.sin(gamma), L12 + L3 * Math.cos(gamma));
-    const theta1 = alpha - beta;
-
-    // Compute theta2
-    const theta2 = Math.acos(
-      (L12 ** 2 + L3 ** 2 - distanceToTarget ** 2) / (2 * L12 * L3),
-    );
-
-    // Assign joint angles
-    this.joints = [theta1, theta2, theta3];
+      for (let p = 0; p < this.armSegments.length; p++) {
+        this.joints[p] = bend;
+        bend *= -1;
+      }
+      this.joints[0] = Math.atan2(dy, dx) - angle + Math.PI / 2;
+    }
   }
 
   // Calculate the positions of the joints and end effector
@@ -102,7 +96,7 @@ class RobotArm {
   }
 }
 
-const arm = new RobotArm(500, 500, [50, 50, 50]);
+const arm = new RobotArm(500, 500, 10);
 arms.push(arm);
 
 canvas.addEventListener("mousemove", function (event) {
